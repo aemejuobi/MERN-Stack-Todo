@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = 3001;
+const apiRoutes = require("./routes/apiRoutes");
 
 // Middleware
 app.use(cors());
@@ -19,11 +20,14 @@ connection.once("open", () => {
     console.log("MongoDB database connection established!");
 });
 
+// API Routes
+apiRoutes(app);
+
 // Send every other file to react app
 // Do API calls before this
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // Starts the express server
 app.listen(PORT, () => {

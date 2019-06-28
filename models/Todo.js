@@ -2,8 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const TodoCollection = new Schema({
-    item: {
+    description: {
         type: String
+    },
+    responsible: {
+        type: String
+    },
+    priority: {
+        type: String
+    },
+    completed: {
+        type: Boolean
     }
 });
 
