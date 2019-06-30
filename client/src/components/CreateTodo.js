@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class CreateTodo extends Component {
 
@@ -51,6 +52,18 @@ class CreateTodo extends Component {
         console.log(`Responsible: ${this.state.todoResponsible}`);
         console.log(`Priority: ${this.state.todoPriority}`);
         console.log(`Completed: ${this.state.todoCompleted}`);
+
+        const newTodo = {
+            description: this.state.todoDescription,
+            responsible: this.state.todoResponsible,
+            priority: this.state.todoPriority,
+            completed: this.state.todoCompleted
+        }
+
+        axios.post("http://localhost:3001/api/create", newTodo)
+        .then(res => {
+            console.log(res.data);
+        });
 
         this.setState({
             todoDescription: "",
