@@ -5,9 +5,9 @@ const Todo = (props) => {
     return(
         <div>
             <tr>
-                <td>{props.todo.description}</td>
-                <td>{props.todo.responsible}</td>
-                <td>{props.todo.priority}</td>
+                <td className={props.todo.complete ? 'completed' : ''}>{props.todo.description}</td>
+                <td className={props.todo.complete ? 'completed' : ''}>{props.todo.responsible}</td>
+                <td className={props.todo.complete ? 'completed' : ''}>{props.todo.priority}</td>
                 <td>
                     <Link to={"/edit/" + props.todo._id}>Edit</Link>
                 </td>

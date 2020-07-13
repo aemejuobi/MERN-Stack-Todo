@@ -18,13 +18,6 @@ class CreateTodo extends Component {
             todoCompleted: false
         }
     }
-    
-    // state = {
-    //     todoDescription: "",
-    //     todoResponsible: "",
-    //     todoPriority: "",
-    //     todoCompleted: false
-    // }
 
     handleTodoDescription(event){
         this.setState({
